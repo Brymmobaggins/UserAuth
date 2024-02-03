@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do Application</title>
+    <!-- link to stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h2>To-Do App</h2>
+    </header>
+    <main>
+      <div class="todo-container">
+        <form>
+          <input
+            type="text"
+            id="task"
+            placeholder="Enter your task..."
+            aria-label="Enter your task..."
+            autocomplete="off"
+          />
+          <button
+            style="
+              border: 1px solid black;
+              padding: 8px;
+              border-radius: 5px;
+              background-color: none;
+            "
+            onclick="addTask()"
+          >
+            <b>+</b>
+          </button>
+          <ul id="task-list">
+            <!-- <li></li> -->
+          </ul>
+        </form>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
