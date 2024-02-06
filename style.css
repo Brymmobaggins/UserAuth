@@ -10,7 +10,6 @@
   padding: 0;
   box-sizing: 0;
   font-family: "Roboto Condensed", sans-serif;
-
 }
 li,
 a {
@@ -48,8 +47,7 @@ input {
   border: 0;
   border-radius: 3px;
 }
-input:focus,
-input:hover {
+input:focus {
   outline: 0.5px solid #008000;
 }
 ::placeholder {
@@ -81,17 +79,18 @@ button:hover {
 .show {
   display: none;
 }
-li:hover .show {
+.icons:hover .show {
   display: block;
-  transition: 0.6s ease-in-out;
+  transition: 0.9s ease-in;
 }
 .checked {
   text-decoration: line-through;
 }
-.icons button:first-child{
-  margin-right: 1rem;
-  
+.icons button:first-child {
+  margin-right: 0.5rem;
 }
+
+/*  */
 @media only screen and (min-width: 768px) {
   header h2 {
     text-align: left;
