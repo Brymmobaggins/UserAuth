@@ -89,6 +89,9 @@ button:hover {
 .icons > button {
   margin-right: 0.5rem;
 }
+small{
+  opacity: 0.4;
+}
 
 /*  */
 @media only screen and (min-width: 768px) {
