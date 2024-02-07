@@ -83,10 +83,10 @@ button:hover {
   display: block;
   transition: 0.9s ease-in;
 }
-.checked {
+.completed {
   text-decoration: line-through;
 }
-.icons button:first-child {
+.icons > button {
   margin-right: 0.5rem;
 }
 
