@@ -48,7 +48,12 @@ function addTodo() {
 
         // append edit button to list item
         todoEl.appendChild(editButton)
+
         // edit button event listener
+        editButton.addEventListener("click", function () {
+            const newText = prompt("Enter new task", todoText);
+            todoEl.textContent = newText;
+        })
 
         // div for icons
         const iconDiv = document.createElement("div")
