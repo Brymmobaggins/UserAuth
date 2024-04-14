@@ -1,48 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do Application</title>
-    <!-- link to stylesheet -->
+    <title>Sign up</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script></script>
   </head>
   <body>
-    <header>
-      <h2>To-Do App</h2>
-    </header>
-    <main>
-      <div class="todo-container">
-        <form>
-          <input
-            type="text"
-            id="task"
-            placeholder="Enter your task..."
-            aria-label="Enter your task..."
-            autocomplete="off"
-          />
-          <button
-            style="
-              border: 0.5px solid #faf1f1;
-              padding: 8px;
-              font-size: 16px;
-              color: #edf5fc;
-              opacity: 1;
-              border-radius: 3px;
-              background-color: #a3a3a3;
-            "
-            onclick="addTodo()"
-          >
-            <b>+</b>
-          </button>
-          <ul class="task-list"></ul>
-        </form>
-       <small> Click on the check mark as completed</br>
-        Click delete icon to delete your task</br>
-        Click on the pencil to edit your task</small>
+    <div class="container">
+      <div class="login-header">Create account</div>
+      <div class="">
+        <label for="name">Name</label>
+        <input type="text" id="name" autocomplete="off" />
       </div>
-    </main>
-    <script src="script.js"></script>
-    <!-- <script src="app.js"></script> -->
+      <div class="">
+        <label for="email">Email</label>
+        <input type="text" id="email" autocomplete="off" />
+      </div>
+      <div class="">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="off" />
+      </div>
+      <div class="">
+        <button>Sign Up</button>
+      </div>
+      <div class="login-footer">
+        <p style="">
+          Have an account?<a href="login.html">Login</a>
+        </p>
+      </div>
+    </div>
   </body>
 </html>
