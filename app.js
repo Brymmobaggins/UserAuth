@@ -6,30 +6,43 @@ form.addEventListener("submit", function (event) {
     createAccount()
 })
 
-let usernameInput = document.querySelector('#name')
-let emailInput = document.querySelector('#name')
-let passwordInput = document.querySelector('#name')
+let fullname = document.getElementById('name')
+let email = document.getElementById('email')
+let password = document.getElementById('password')
 
 
-// function createAccount(){
-
-// }
 
 function createAccount() {
-    let username = usernameInput.value
-    let password = passwordInput.value
+    let fullNameValue = fullname.value
+    let emailValue = email.value
+    let passwordValue = password.value
 
-    if (localStorage.getItem(username)) {
-        alert("username is already taken")
-    } else {
-        // save username and password to local storage
-        localStorage.setItem(username, password)
+    if (fullNameValue && emailValue && passwordValue) {
+        // create an object to save user credentials to local storage
+        const credentials = {
+            fullNameValue: fullNameValue,
+            emailValue: emailValue,
+            passwordValue: passwordValue
+
+        }
+
+        // save your key and value to local, convert JS object to JSON object using stringify method
+        localStorage.setItem("userCredentials", JSON.stringify(credentials))
 
         // Hide form, show success message
-        document.getElementById("#signup-form").style.display = "none"
-        document.getElementById("#successMessage").style.display = "block"
+        document.getElementById("signup-form").style.display = "none"
+        document.getElementById("successMessage").style.display = "block"
     }
 
 }
+
+function showError() {
+    let messageEl = document.querySelector("small")
+    messageEl.innerText = "username is already taken"
+    setTimeout(() => {
+        messageEl.style.display = "none"
+    }, 2000);
+}
+
 
 
