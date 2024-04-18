@@ -82,9 +82,7 @@ button:hover {
   color: #ff6565;
 }
 #successMessage {
-  /* font-size: medium; */
-  /* font-weight: 300; */
-  /* height: 50px; */
+
   display: none;
   padding-top: 15px;
   text-align: center;

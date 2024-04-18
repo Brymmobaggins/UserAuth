@@ -1,10 +1,23 @@
 
-const signupForm = document.querySelector("#signup-form")
-signupForm.addEventListener("submit", function (event) {
-    event.preventDefault()
-    createAccount()
-})
+function login() {
+    let username = document.getElementById("login-username").value
+    let password = document.getElementById("login-password").value
 
+
+    // Retrieve users from local storage
+    const users = JSON.parse(localStorage.getItem('users')) || []
+
+    // Check if username and password match
+    const user = users.find(
+        (user) => user.username === username && user.password === password
+    );
+    (user) ? alert("success") : alert(" wrong username or password")
+
+    // Clear login form
+    document.getElementById("login-username").value = ""
+    document.getElementById("login-password").value = ""
+
+}
 
 function createAccount() {
     let username = document.getElementById("signUpName").value;
@@ -16,18 +29,8 @@ function createAccount() {
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
-    if (!username.trim()) {
-        alert("name cannot be empty")
-        clearInput()
-    } else if ((!password.trim())) {
-        alert("enter your password")
-        clearInput()
-    } else if (password.length <= 6) {
-        alert("Password should more than 6 characters")
-        clearInput()
-
-    } else if (users.includes(username)) {
-        alert("User name already exist")
+    if (users.find((user) => user.username === username)) {
+        alert("username already exists")
     } else {
         users.push({
             username: username,
@@ -55,9 +58,6 @@ function createAccount() {
 function generateUserName(username) {
     return username.slice(0, 2).toUpperCase() + "_"
 }
-
-
-
 
 
 
