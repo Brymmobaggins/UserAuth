@@ -19,7 +19,7 @@ header {
   border: 1px solid #b9b0b0;
   border-radius: 6px;
   width: 100%;
-  max-width: 400px;
+  max-width: 330px;
   margin: 0 auto;
   padding: 0 10px;
   position: absolute;
@@ -78,16 +78,24 @@ button:hover {
   line-height: 1.25rem;
   font-weight: 500;
 }
-.error {
-  color: #ff6565;
-}
-#successMessage {
 
+#successMessage {
+  font-size: medium;
   display: none;
   padding-top: 15px;
   text-align: center;
-  word-spacing: 1px;
+
   font-size: 16px;
+  line-height: 5px;
   width: 100%;
   padding-bottom: 10px;
+  /* background-color: #ff6565; */
+  /* font-weight: 600; */
+}
+#successMessage span {
+  font-weight: 600;
+  /* color: green; */
+}
+#welcome {
+  background-color: yellow;
 }
