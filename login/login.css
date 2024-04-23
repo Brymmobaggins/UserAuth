@@ -29,7 +29,7 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.container > div {
+#login-form > div {
   margin-top: 0.59rem;
 }
 label {
@@ -82,9 +82,7 @@ button:hover {
   position: absolute;
   display: none;
   top: 20%;
-  /* bottom: 0; */
   right: 45%;
-  /* margin-top: 4rem; */
-  /* height: 30px; */
   font-size: 1.5rem;
 }
+
