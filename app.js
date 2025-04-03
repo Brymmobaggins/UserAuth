@@ -1,124 +1,114 @@
-const form = document.querySelector('form')
-form.addEventListener("submit", function (event) {
-    event.preventDefault()
-    createAccount()
+/** @format */
+const message = document.querySelector("#message");
+const form = document.querySelector("form");
 
-})
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 
-// Create account function  
 function createAccount() {
-    let username = document.getElementById("signUpName").value.trim();
-    let password = document.getElementById("signUpPassword").value.trim();
+  const usernameInput = document.getElementById("signUpName");
 
-    // Generate a random number
-    let randomNumber = Math.floor(Math.random() * 100);
-    username = generateUserName(username) + randomNumber;
+  const passwordInput = document.getElementById("signUpPassword");
+  const username = usernameInput.value.trim();
+  console.log(username);
+  const password = passwordInput.value.trim();
 
+  if (!username || !password) {
+    return showMessage("Please fill in all fields", "red");
+  }
 
-    /* This is retrieving the 'users' data from localStorage, parsing it from JSON to a JavaScript object, and assigning it to the users variable.
+  if (password.length < 6) {
+    return showMessage("Password must be at least 6 characters long", "red");
+  }
 
-     If there is no 'users' data in localStorage yet, it will default to an empty array [].
-     So this is initializing the users array from localStorage if it exists, or creating a new empty array if not.
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  if (users.some((user) => user.username === username)) {
+    return showMessage("Username already exists", "red");
+  }
 
-     This allows the rest of the code to always work with the users array without having to check if it exists yet*/
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+  const newUser = {
+    username: username + Math.floor(Math.random() * 100),
+    password,
+  };
 
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
 
-    if (username.trim() === "" || password.trim() === "") {
-        alert("Please enter your username and password")
-    } else if (password.length < 6) {
-        alert("password must be at least 6 characters long")
+  usernameInput.value = "";
+  passwordInput.value = "";
 
-    }// Check if username already exists
-    else if (users.find((user) => user.username === username)) {
-        alert("username already exists")
-
-    } else {
-        users.push({
-            username: username,
-            password: password,
-        })
-
-        // Save the whole credentials object to localStorage
-        localStorage.setItem("users", JSON.stringify(users));
-
-        // Clear input fields
-        clearInput()
-
-        // Hide form, show success message
-
-        document.getElementById("signup-form").style.display = "none";
-        document.getElementById("successMessage").style.display = "block";
-        document.getElementById("successMessage").innerHTML = `
+  document.getElementById("signup-form").style.display = "none";
+  document.getElementById("successMessage").style.display = "block";
+  document.getElementById("successMessage").innerHTML = `
         <p>
-            Hello ${username}, your username is <span>${username}</span>
-             kindly<a href="/login/login.html"> log in</a>
-        </p>
-        `
-    }
-}
-// Generate a username from the first two letters of the username
-function generateUserName(username) {
-    return username.slice(0, 2).toUpperCase() + "_"
-}
-// Clear input fields
-function clearInput() {
-    document.getElementById('signUpName').value = '';
-    document.getElementById('signUpPassword').value = '';
+            Hello ${newUser.username}, your username is <span>${newUser.username}</span>.
+            Kindly <a href="/login/login.html">log in</a>.
+        </p>`;
 }
 
-// Login function
 function login() {
-    let username = document.getElementById("login-username").value.trim()
-    let password = document.getElementById("login-password").value.trim()
+  const username = document.getElementById("login-username").value.trim();
+  const password = document.getElementById("login-password").value.trim();
 
-    // Check if username and password are empty
-    if (username === "" || password === "") {
-        alert("Please enter your username and password")
-        return;
-    }
+  if (!username || !password) {
+    console.log("login failed");
+    setTimeout(() => {
+      message.textContent = ""; // Clear the message after 5 seconds
+      message.style.color = ""; // Reset the color to default
+    }, 5000); // Clear the message after 5 seconds
+    return showMessage("Please enter your username and password", "red");
+  }
 
-    // Retrieve users from local storage
-    const users = JSON.parse(localStorage.getItem('users')) || []
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(
+    (user) => user.username === username && user.password === password
+  ); 
 
-    // Check if username and password match
-    const user = users.find(
-        (user) => user.username === username && user.password === password
-    );
-    if (user) {
-        // Hide login form
-        document.getElementById("login-form").style.display = "none";
-        document.querySelector(".container").style.display = "none";
+  if (user) {
+    document.getElementById("login-form").style.display = "none";
+    document.querySelector(".container").style.display = "none";
 
-        // show spinner, 
-        showSpinner()
 
-        // show spinner for 3 seconds, go to welcome home page
-        setTimeout(function () {
-            hideSpinner()
-            window.location.replace("/home.html")
-        }, 3000)
-    } else {
-        alert(" wrong username or password")
+    // redirect user to home page
+    window.location.replace("/home.html");
+    showMessage("Login successful", "green");
+    message.style.fontSize = "1.2rem";
+    message.style.fontWeight = "bold";
+   
+    message.textContent = "Login successful, redirecting...";
 
-    }
-    // Clear login form
-    document.getElementById("login-username").value = ""
-    document.getElementById("login-password").value = ""
 
+    // showSpinner();
+
+    // setTimeout(() => {
+    //     hideSpinner();
+    //     window.location.replace("/home.html");
+    // }, 3000);
+  } else {
+    console.log("login failed");
+    showMessage("Wrong username or password", "red");
+    setTimeout(() => {
+      message.textContent = "";
+      message.style.color = ""; // Reset the color to default
+    }, 5000);
+  }
+
+  document.getElementById("login-username").value = "";
+  document.getElementById("login-password").value = "";
 }
-function showSpinner() {
-    document.getElementById("spinner").style.display = "block";
-    // document.getElementById("login-form").style.display = "none";
+
+function showMessage(msg, color) {
+  message.textContent = msg;
+  message.style.color = color;
+  message.style.fontSize = "0.85rem";
+    message.style.fontWeight = "bold";
 }
-function hideSpinner() {
-    document.getElementById("spinner").style.display = "none";
-}
 
+// function showSpinner() {
+//     document.getElementById("spinner").style.display = "block";
+// }
 
-
-
-
-
-
-
+// function hideSpinner() {
+//     document.getElementById("spinner").style.display = "none";
+// }
