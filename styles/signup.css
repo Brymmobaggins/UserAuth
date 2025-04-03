@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+header {
+  background: #020d19;
+  color: white;
+  padding: 1rem 2rem;
+}
+.login-header {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.25rem;
+}
+.container {
+  border: 1px solid #b9b0b0;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#signup-form > div {
+  margin-top: 0.59rem;
+}
+label {
+  display: block;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 500;
+}
+input {
+  width: 100%;
+  padding: 0.375rem;
+  outline: none;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  border-width: 0;
+  border: 0.2px solid gray;
+  border-radius: 3px;
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+  --tw-ring-inset: inset;
+  --ring-color: #d1d5db;
+}
+input:focus {
+  outline: 0.2px solid #008000;
+}
+::placeholder {
+  font-size: 14px;
+}
+button {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  font-weight: 600;
+  border: none;
+  height: 25px;
+  color: #ffffff;
+  background: #008000;
+  opacity: 1;
+}
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.login-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+#successMessage {
+  /* font-size: medium; */
+  padding-top: 15px;
+  text-align: center;
+  /* font-size: 20px; */
+  /* width: 100%; */
+
+}
+#successMessage span {
+  font-weight: 600;
+  /* color: green; */
+}
+#successMessage a{
+  color: #008000;
+  /* text-decoration: none; */
+}
+#welcome {
+  background-color: yellow;
+}
