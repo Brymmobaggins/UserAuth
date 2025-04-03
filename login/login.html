@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,14 +39,14 @@
         <h2>Login here</h2>
         <div class="">
           <label for="name">Username</label>
-          <input type="text" id="login-username" />
+          <input type="text" id="login-username" title="Enter your username" placeholder="Username" />
         </div>
         <div class="">
           <label for="password">Password</label>
-          <input type="password" id="login-password" autocomplete="" />
+          <input type="password" id="login-password" autocomplete="" title="Enter your password" placeholder="Password" />
         </div>
         <div class="">
-          <button onclick="login()">Log In</button>
+          <button type="button" onclick="login()">Log In</button>
         </div>
         <div class="login-footer">
           <p>Dont have an account?<a href="/signup/signup.html"> Sign Up</a></p>
