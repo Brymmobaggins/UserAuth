@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Page</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <h1>Welcome!</h1>
+        <p>
+          Welcome to the community your account has been created and signed in
+        </p>
+        <p>You can take few minutes to update your profile</p>
+        <button type="button" onclick="logout()">Log out</button>
+      </div>
+    </main>
+    <script>
+      function logout() {
+        window.location.replace("/login/login.html");
+      }
+    </script>
+  </body>
+</html>
