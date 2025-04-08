@@ -63,21 +63,19 @@ function login() {
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const user = users.find(
     (user) => user.username === username && user.password === password
-  ); 
+  );
 
   if (user) {
     document.getElementById("login-form").style.display = "none";
     document.querySelector(".container").style.display = "none";
-
 
     // redirect user to home page
     window.location.replace("/home.html");
     showMessage("Login successful", "green");
     message.style.fontSize = "1.2rem";
     message.style.fontWeight = "bold";
-   
-    message.textContent = "Login successful, redirecting...";
 
+    message.textContent = "Login successful, redirecting...";
 
     // showSpinner();
 
@@ -98,11 +96,26 @@ function login() {
   document.getElementById("login-password").value = "";
 }
 
+function handleForgotPassword() {
+  const username = document.getElementById("forgot-username").value.trim();
+  const securityAnswer = document
+    .getElementById("security-answer")
+    .value.trim();
+  const newPassword = document.getElementById("new-password").value.trim();
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find((user) => user.username === username);
+
+  if(!user) {
+    return showMessage("Username not found", "red");
+  }
+}
+
 function showMessage(msg, color) {
   message.textContent = msg;
   message.style.color = color;
   message.style.fontSize = "0.85rem";
-    message.style.fontWeight = "bold";
+  message.style.fontWeight = "bold";
 }
 
 // function showSpinner() {
