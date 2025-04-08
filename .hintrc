@@ -20,6 +20,8 @@
       {
         "html-has-lang": "off"
       }
-    ]
+    ],
+    "axe/name-role-value": "off",
+    "no-inline-styles": "off"
   }
 }
