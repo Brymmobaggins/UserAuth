@@ -6,16 +6,24 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
-function createAccount() {
-  const usernameInput = document.getElementById("signUpName");
-  const passwordInput = document.getElementById("signUpPassword");
-  const emailInput = document.getElementById("e-mail");
+function handleSignUp() {
+  const username = document.getElementById("signup-name").value.trim();
+  const email = document.getElementById("signup-email").value.trim();
+  const password = document.getElementById("signup-password").value.trim();
+  const securityQuestion = document
+    .getElementById("security-question")
+    .value.trim();
+  const securityAnswer = document
+    .getElementById("security-answer")
+    .value.trim();
 
-  const username = usernameInput.value.trim();
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
-
-  if (!username || !password || !email) {
+  if (
+    !username ||
+    !password ||
+    !email ||
+    !securityQuestion ||
+    !securityAnswer
+  ) {
     return showMessage("Please fill in all fields", "red");
   }
 
@@ -35,20 +43,27 @@ function createAccount() {
   }
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
-  if (users.some((user) => user.username === username)) {
+  const userExists = users.find((user) => user.username === username);
+
+  if (userExists) {
     return showMessage("Username already exists", "red");
   }
 
   const newUser = {
     username: username + Math.floor(Math.random() * 100),
     password,
+    email,
+    securityQuestion,
+    securityAnswer,
   };
 
   users.push(newUser);
   localStorage.setItem("users", JSON.stringify(users));
+  showMessage("Sign up successful", "green");
 
-  usernameInput.value = "";
-  passwordInput.value = "";
+  // clear the form fields
+  username.value = "";
+  password.value = "";
 
   document.getElementById("signup-form").style.display = "none";
   document.getElementById("successMessage").style.display = "block";
@@ -90,7 +105,7 @@ function login() {
     // setTimeout(() => {
     //     hideSpinner();
     //     window.location.replace("/home.html");
-    // }, 3000);  
+    // }, 3000);
   } else {
     console.log("login failed");
     showMessage("Wrong username or password", "red");
@@ -100,8 +115,10 @@ function login() {
   document.getElementById("login-password").value = "";
 }
 
+function handleForgotPassword() {}
+
 // function to handle error messages
-function showMessage(msg, color) { 
+function showMessage(msg, color) {
   message.textContent = msg;
   message.style.color = color;
   message.style.fontSize = "0.85rem";
@@ -111,13 +128,3 @@ function showMessage(msg, color) {
     message.style.color = ""; // Reset the color to default
   }, 5000); // Clear the message after 5 seconds
 }
-
-// Remove clearMessageAfterDelay function as it's now integrated into showMessage
-
-// function showSpinner() {
-//     document.getElementById("spinner").style.display = "block";
-// }
-
-// function hideSpinner() {
-//     document.getElementById("spinner").style.display = "none";
-// }
