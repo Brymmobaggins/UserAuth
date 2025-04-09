@@ -106,8 +106,27 @@ function handleForgotPassword() {
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const user = users.find((user) => user.username === username);
 
-  if(!user) {
+  if (!user) {
     return showMessage("Username not found", "red");
+  }
+
+  const securityQuestionContainer = document.getElementById(
+    "security-question-container" );
+  const newPasswordContainer = document.getElementById(
+    "new-password-container"
+  );
+  const securityQuestionLabel = document.getElementById(
+    "security-question-label"
+  );
+
+  if (
+    !securityQuestionContainer.style.display ||
+    securityQuestionContainer.style.display === "none"
+  ) {
+    // Show the security question
+    securityQuestionLabel.textContent = user.securityQuestion;
+    securityQuestionContainer.style.display = "block";
+    return;
   }
 }
 

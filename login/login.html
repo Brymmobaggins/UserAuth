@@ -6,20 +6,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log In</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="/styles/login.css" />
+    <!-- Link to external JavaScript file -->
     <script defer src="/js/app.js"></script>
     <style></style>
   </head>
   <body>
     <header>
+      <!-- Header text -->
       Sign up, Login and log out with Web storage API (local Storage)
     </header>
 
     <div class="container">
+      <!-- Message container -->
       <p id="message"></p>
+      <!-- Login form -->
       <form id="login-form">
         <h2 class="login-header">Login here</h2>
         <div>
+          <!-- Username input field -->
           <label for="name">Username</label>
           <input
             type="text"
@@ -30,6 +36,7 @@
         </div>
 
         <div>
+          <!-- Password input field -->
           <label for="password">Password</label>
           <input
             type="password"
@@ -40,15 +47,17 @@
           />
         </div>
 
-       
-        <p style="font-family: 10px">
+        <!-- Forgot password link -->
+        <p style="text-align: right;">
           <a href="./forgetPassword.html">Forgot Password</a>
         </p>
- 
+
         <div>
+          <!-- Login button -->
           <button type="button" onclick="login()">Log In</button>
         </div>
         <div class="login-footer">
+          <!-- Sign-up link -->
           <p>Dont have an account?<a href="/signup/signup.html"> Sign Up</a></p>
         </div>
       </form>
