@@ -57,10 +57,6 @@ function handleSignUp() {
     securityAnswer,
   };
 
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
-  showMessage("Sign up successful", "green");
-
   // clear the form fields
   document.getElementById("signup-name").value = "";
   document.getElementById("signup-email").value = "";
@@ -69,12 +65,17 @@ function handleSignUp() {
   document.getElementById("security-answer").value = "";
 
   document.getElementById("signup-form").style.display = "none";
-  document.getElementById("successMessage").style.display = "block";
-  document.getElementById("successMessage").innerHTML = `
-        <p>
+  document.getElementById("success-message").innerHTML = `
+        <h2 style="color:green; text-align:center">
+        Sign up successful
+        </h1>
+        <h4>
             Hello ${newUser.username}, your username is <span>${newUser.username}</span>.
             Kindly <a href="/login/login.html">log in</a>.
-        </p>`;
+        </h4>`;
+
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
 function login() {

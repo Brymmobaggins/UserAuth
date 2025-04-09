@@ -39,12 +39,12 @@ function createAccount() {
   passwordInput.value = "";
 
   document.getElementById("signup-form").style.display = "none";
-  document.getElementById("successMessage").style.display = "block";
-  document.getElementById("successMessage").innerHTML = `
-        <p>
+  document.getElementById("success-message-container").style.display = "block";
+  document.getElementById("success-message").innerText = `
+        <h1>
             Hello ${newUser.username}, your username is <span>${newUser.username}</span>.
             Kindly <a href="/login/login.html">log in</a>.
-        </p>`;
+        </h1>`;
 }
 
 function login() {
@@ -77,12 +77,6 @@ function login() {
 
     message.textContent = "Login successful, redirecting...";
 
-    // showSpinner();
-
-    // setTimeout(() => {
-    //     hideSpinner();
-    //     window.location.replace("/home.html");
-    // }, 3000);
   } else {
     console.log("login failed");
     showMessage("Wrong username or password", "red");
@@ -98,10 +92,6 @@ function login() {
 
 function handleForgotPassword() {
   const username = document.getElementById("forgot-username").value.trim();
-  const securityAnswer = document
-    .getElementById("security-answer")
-    .value.trim();
-  const newPassword = document.getElementById("new-password").value.trim();
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const user = users.find((user) => user.username === username);
@@ -112,9 +102,6 @@ function handleForgotPassword() {
 
   const securityQuestionContainer = document.getElementById(
     "security-question-container" );
-  const newPasswordContainer = document.getElementById(
-    "new-password-container"
-  );
   const securityQuestionLabel = document.getElementById(
     "security-question-label"
   );

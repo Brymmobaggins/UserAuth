@@ -6,10 +6,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <!-- bcrypt.js CDN -->
+  
     <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="/styles/signup.css" />
     <!-- Link to the external JavaScript file -->
-    <script defer src="/js/app.js "></script>
+    <script defer src="../js/app.js "></script>
   </head>
   <body>
     <header>
@@ -18,9 +20,12 @@
     </header>
     <div class="container" id="">
       <!-- Message container for displaying feedback -->
+
       <div id="message"></div>
+      <p id="success-message"></p>
+
       <!-- Sign-up form -->
-      <for m id="signup-form">
+      <form id="signup-form">
         <div class="login-header">Create account</div>
 
         <!-- Full Name input field -->
@@ -46,10 +51,18 @@
           <label for="security-question">Security Question</label>
           <select id="security-question">
             <option disabled selected>Select a security question</option>
-            <option value="pet">What is your pet's name?</option>
-            <option value="school">What is the name of your school?</option>
-            <option value="city">What city were you born in?</option>
-            <option value="movie">What is your favorite movie?</option>
+            <option value="What is your pet's name?">
+              What is your pet's name?
+            </option>
+            <option value="What is the name of your school?">
+              What is the name of your school?
+            </option>
+            <option value="What city were you born in?">
+              What city were you born in?
+            </option>
+            <option value="What is your favorite movie?">
+              What is your favorite movie?
+            </option>
           </select>
         </div>
 
@@ -73,9 +86,8 @@
         <div class="login-footer">
           <p>Have an account? <a href="/login/login.html"> Login</a></p>
         </div>
-      </for>
+      </form>
       <!-- Success message container -->
-      <div id="successMessage"></div>
     </div>
   </body>
 </html>
