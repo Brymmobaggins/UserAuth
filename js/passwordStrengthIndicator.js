@@ -3,7 +3,7 @@
 // Function to check password strength
 function checkPasswordStrength(password) {
   const strengthIndicator = document.getElementById("password-strength");
-  let strength = "Weak";
+  let strength = "Wea";
   let color = "red";
 
   if (
@@ -18,7 +18,7 @@ function checkPasswordStrength(password) {
     color = "orange";
   }
 
-  strengthIndicator.textContent = `Strength: ${strength}`;
+  strengthIndicator.textContent = `Password strength: ${strength}`;
   strengthIndicator.style.color = color;
 }
 

@@ -20,13 +20,13 @@
 
     <div class="container">
       <!-- Message container -->
-      <p id="message"></p>
+      <p id="message">yyyy</p>
       <!-- Login form -->
       <form id="login-form">
         <h2 class="login-header">Login here</h2>
         <div>
           <!-- Username input field -->
-          <label for="name">Username</label>
+          <label for="username">Username</label>
           <input
             type="text"
             id="login-username"
@@ -41,16 +41,29 @@
           <input
             type="password"
             id="login-password"
-            autocomplete=""
-            title="Enter your password"
+            
             placeholder="Password"
           />
         </div>
+        <div class="rememberme-forget-container">
+          <label for="remember-me" class="remember-me-label">
+            <!-- Remember me checkbox -->
+            <input
+              type="checkbox"
+              id="remember-me"
+              title="Remember me"
+              name="remember-me"
+            />
+            Remember me
+          </label>
 
-        <!-- Forgot password link -->
-        <p style="text-align: right;">
-          <a href="./forgetPassword.html">Forgot Password</a>
-        </p>
+          <!-- Forgot password link -->
+          <p style="text-align: right">
+            <a href="./forgetPassword.html">Forgot Password</a>
+          </p>
+        </div>
+
+       
 
         <div>
           <!-- Login button -->

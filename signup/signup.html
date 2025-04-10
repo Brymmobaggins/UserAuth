@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
     <!-- bcrypt.js CDN -->
-  
+
     <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="/styles/signup.css" />
-    <!-- Link to the external JavaScript file -->
-    <script defer src="../js/app.js "></script>
+    <!-- Link to the external JavaScript files -->
+    <script defer src="../js/passwordStrengthIndicator.js"></script>
+    <script defer src="../js/app.js"></script>
   </head>
   <body>
     <header>
@@ -44,6 +45,17 @@
         <div>
           <label for="password">Password</label>
           <input type="password" id="signup-password" />
+          <small
+            id="password-strength"
+            style="
+              display: block;
+              margin-top: 5px;
+              font-size: 0.85rem;
+              color: red;
+            "
+          >
+    
+          </small>
         </div>
 
         <!-- Security question dropdown -->
