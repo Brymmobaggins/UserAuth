@@ -130,6 +130,14 @@ function login() {
   document.getElementById("login-password").value = "";
 }
 
+function logOut(){
+  // Clear the "Remember Me" data
+  localStorage.removeItem("rememberUser");
+
+  // Redirect to login page
+  window.location.replace("/login/login.html");
+}
+
 function handleForgotPassword() {
   const username = document.getElementById("forgot-username").value.trim();
   const securityAnswer = document
