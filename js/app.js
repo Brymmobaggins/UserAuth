@@ -6,6 +6,16 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
+// Prefill the username field if "Remember Me" was selected, so it runs when page load
+document.addEventListener("DOMContentLoaded", () => {
+  const rememberedUsername = localStorage.getItem("rememberUser");
+  if (rememberedUsername) {
+    document.getElementById("login-username").value =
+      JSON.parse(rememberedUsername);
+    document.getElementById("remember-me").checked = true; // Check the "Remember Me" box
+  }
+});
+
 function handleSignUp() {
   const username = document.getElementById("signup-name").value.trim();
   const email = document.getElementById("signup-email").value.trim();
@@ -81,10 +91,18 @@ function handleSignUp() {
 function login() {
   const username = document.getElementById("login-username").value.trim();
   const password = document.getElementById("login-password").value.trim();
+  const checkbox = document.getElementById("remember-me");
 
   if (!username || !password) {
     console.log("login failed");
     return showMessage("Please enter your username and password", "red");
+  }
+
+  // Handle "Remember Me" functionality
+  if (checkbox.checked) {
+    localStorage.setItem("rememberUser", JSON.stringify(username));
+  } else {
+    localStorage.removeItem("rememberUser"); // Fix typo here
   }
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -96,20 +114,13 @@ function login() {
     document.getElementById("login-form").style.display = "none";
     document.querySelector(".container").style.display = "none";
 
-    // redirect user to home page
+    // Redirect user to home page
     window.location.replace("/home.html");
     showMessage("Login successful", "green");
     message.style.fontSize = "1.2rem";
     message.style.fontWeight = "bold";
 
     message.textContent = "Login successful, redirecting...";
-
-    // showSpinner();
-
-    // setTimeout(() => {
-    //     hideSpinner();
-    //     window.location.replace("/home.html");
-    // }, 3000);
   } else {
     console.log("login failed");
     showMessage("Wrong username or password", "red");
@@ -184,7 +195,9 @@ function handleForgotPassword() {
 function showMessage(msg, color) {
   message.textContent = msg;
   message.style.color = color;
-  message.style.fontSize = "0.85rem";
+  message.style.fontSize = "0.875rem";
+  message.style.lineHeight = "1.25rem";
+  message.style.fontWeight = 500;
 
   setTimeout(() => {
     message.textContent = ""; // Clear the message
