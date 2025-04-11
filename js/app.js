@@ -115,7 +115,7 @@ function login() {
     document.querySelector(".container").style.display = "none";
 
     // Redirect user to home page
-    window.location.replace("/home.html");
+    window.location.replace("/home/home.html");
     showMessage("Login successful", "green");
     message.style.fontSize = "1.2rem";
     message.style.fontWeight = "bold";
@@ -130,13 +130,7 @@ function login() {
   document.getElementById("login-password").value = "";
 }
 
-function logOut(){
-  // Clear the "Remember Me" data
-  localStorage.removeItem("rememberUser");
 
-  // Redirect to login page
-  window.location.replace("/login/login.html");
-}
 
 function handleForgotPassword() {
   const username = document.getElementById("forgot-username").value.trim();
@@ -197,6 +191,14 @@ function handleForgotPassword() {
   setTimeout(() => {
     window.location.replace("/login/login.html");
   }, 2000);
+}
+function handleLogOut(){
+  // Clear the "Remember Me" data
+  localStorage.removeItem("rememberUser");
+
+  // Redirect to login page
+  window.location.replace("/login/login.html");
+ 
 }
 
 // function to handle error messages
