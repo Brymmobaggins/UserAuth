@@ -3,22 +3,18 @@
 // Function to check password strength
 function checkPasswordStrength(password) {
   const strengthIndicator = document.getElementById("password-strength");
-  let strength = "Weak";
+  let strength = "weak";
   let color = "red";
 
-  if (
-    password.length >= 8 &&
-    /[A-Z]/.test(password) &&
-    /[0-9]/.test(password)
-  ) {
-    strength = "Strong";
+  if (password.length >= 6 &&/[A-Z]/.test(password) &&/[0-9]/.test(password)) {
+    strength = "strong";
     color = "green";
   } else if (password.length >= 6) {
-    strength = "Medium";
+    strength = "medium";
     color = "orange";
   }
 
-  strengthIndicator.textContent = `Strength: ${strength}`;
+  strengthIndicator.textContent = `Your password strength is ${strength}`;
   strengthIndicator.style.color = color;
 }
 
