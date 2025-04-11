@@ -53,8 +53,7 @@ label[for="password"] {
   line-height: 1.25rem; /* 20px */
   font-weight: 500;
 }
-input {
-}
+
 input:focus {
   outline: 0.2px solid #2d502d;
 }
