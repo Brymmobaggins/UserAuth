@@ -4,14 +4,13 @@ import { showMessage } from "./app.js";
 const profileForm = document.getElementById("profile-form");
 profileForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  ; // Call the function
+
 });
 
 const saveButton = document.querySelector("button");
 saveButton.addEventListener("click", updateProfile); // Corrected selector
 
 export function updateProfile() {
-//   const message = document.getElementById("message"); // Corrected selector
 
   const email = document.getElementById("profile-email").value.trim();
   const password = document.getElementById("profile-password").value.trim();
