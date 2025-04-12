@@ -1,0 +1,98 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="/styles/profile.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Profile Page</h1>
+    </header>
+    <div id="message"></div>
+
+    <div class="container">
+      <h2 style="text-align: center">Update your profile information</h2>
+      <div class="row">
+        <!-- firs column -->
+        <div class="left-column col">
+          <div class="profile-picture-container">
+            <img
+              type="file"
+              src=""
+              alt="Upload Profile Picture"
+              title="Upload Profile Picture"
+            />
+          </div>
+          <!-- Profile form -->
+        </div>
+        <!-- right column -->
+        <form id="profile-form" class="col">
+          <!-- Username (read-only) -->
+          <div>
+            <label for="profile-username">Username</label>
+            <input
+              type="text"
+              id="profile-username"
+              placeholder="Username"
+              readonly
+            />
+          </div>
+          <!-- Email -->
+          <div>
+            <label for="profile-email">Email</label>
+            <input type="email" id="profile-email" placeholder="Email" />
+          </div>
+          <!-- Security Question -->
+          <div>
+            <label for="profile-security-question">Security Question</label>
+            <select id="profile-security-question">
+              <option disabled selected>Select a security question</option>
+              <option value="What is your pet's name?">
+                What is your pet's name?
+              </option>
+              <option value="What is the name of your school?">
+                What is the name of your school?
+              </option>
+              <option value="What city were you born in?">
+                What city were you born in?
+              </option>
+              <option value="What is your favorite movie?">
+                What is your favorite movie?
+              </option>
+            </select>
+          </div>
+          <!-- Security Answer -->
+          <div>
+            <label for="profile-security-answer">Answer</label>
+            <input
+              type="text"
+              id="profile-security-answer"
+              placeholder="Answer"
+            />
+          </div>
+          <!-- Password -->
+          <div>
+            <label for="profile-password">New Password</label>
+            <input
+              type="password"
+              id="profile-password"
+              placeholder="New Password"
+            />
+          </div>
+          <!-- Submit Button -->
+          <button type="button" onclick="">Save Changes</button>
+          <div id="back-home">
+            <p><a href="/home/home.html">Home</a></p>
+          </div>
+        </form>
+        <!-- Back to Home -->
+      </div>
+    
+    </div>
+    <script type="module" src="/js/updateProfile.js"></script>
+  </body>
+</html>

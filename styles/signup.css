@@ -51,7 +51,7 @@ input, select {
   --ring-color: #d1d5db;
 }
 input:focus {
-  outline: 0.2px solid #008000;
+  outline: 0.1px solid #008000;
 }
 ::placeholder {
   font-size: 14px;
