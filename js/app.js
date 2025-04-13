@@ -202,7 +202,7 @@ function handleLogOut(){
 }
 
 // function to handle error messages
-function showMessage(msg, color) {
+export function showMessage(msg, color) {
   message.textContent = msg;
   message.style.color = color;
   message.style.fontSize = "0.875rem";
