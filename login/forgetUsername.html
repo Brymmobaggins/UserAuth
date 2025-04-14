@@ -1,0 +1,49 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Username</title>
+    <link rel="stylesheet" href="/styles/forgetPassword.css" />
+    <script defer src="../js/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="login-header">Forgot Username</h1>
+    </header>
+    <div class="container">
+      <form id="forgot-username-form">
+        <!-- Email -->
+        <div>
+          <label for="forgot-email">Email</label>
+          <input
+            type="email"
+            id="forgot-email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <!-- Security question -->
+        <div id="security-question-container">
+          <label id="security-question-label" for="security-answer"></label>
+          <input
+            type="text"
+            id="security-answer"
+            placeholder="Answer to your security question"
+            required
+          />
+        </div>
+        <button
+          type="button"
+          id="submit-button"
+          onclick="handleForgotUsername()"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <div id="message"></div>
+  </body>
+</html>

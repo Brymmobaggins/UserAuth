@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/styles/signup.css" />
     <script defer src="../js/passwordStrengthIndicator.js"></script>
     <!-- Link to the external JavaScript file -->
-    <script defer src="../js/app.js "></script>
+    <script type="module" src="../js/app.js"></script>
+    <script type="module" src="../js/Signup.js"></script>
   </head>
   <body>
     <header>
@@ -47,7 +48,7 @@
           <input type="password" id="signup-password" />
           <small id="password-strength"> </small>
         </div>
-        <small></small>
+      
 
         <!-- Security question dropdown -->
         <div>
@@ -82,7 +83,7 @@
 
         <!-- Sign-up button -->
         <div class="form-control">
-          <button type="button" onclick="handleSignUp()">Sign Up</button>
+          <button type="button" id="signup-button">Sign Up</button>
         </div>
 
         <!-- Footer with login link -->
