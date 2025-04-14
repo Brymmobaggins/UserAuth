@@ -1,8 +1,9 @@
 /** @format */
 
 import { showMessage } from "./app.js";
+import { config } from "./config.js";
 
-const submitButton = document.getElementById('submit-button')
+const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", handleForgotPassword);
 
 export function handleForgotPassword() {
@@ -52,8 +53,13 @@ export function handleForgotPassword() {
   }
 
   // Update the password
-  if (newPassword.length < 6) {
-    return showMessage("Password must be at least 6 characters long", "red");
+  if (newPassword.length < config.passwordMinLength) {
+    return showMessage(
+      "Password must be at least " +
+        config.passwordMinLength +
+        " characters long",
+      "red"
+    );
   }
 
   user.password = newPassword;

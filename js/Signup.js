@@ -1,6 +1,7 @@
 /** @format */
 
 import { showMessage } from "./app.js";
+import { config } from "./config.js";
 
 const signUpButton = document.getElementById("signup-button");
 
@@ -38,8 +39,14 @@ export function handleSignUp() {
     );
   }
 
-  if (password.length < 6) {
-    return showMessage("Password must be at least 6 characters long", "red");
+  // Updated password validation to use `config.passwordMinLength`
+  if (password.length < config.passwordMinLength) {
+    return showMessage(
+      "Password must be at least " +
+        config.passwordMinLength +
+        " characters long",
+      "red"
+    );
   }
 
   const users = JSON.parse(localStorage.getItem("users")) || [];

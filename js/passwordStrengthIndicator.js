@@ -1,5 +1,7 @@
 /** @format */
 
+import { config } from "./config.js";
+
 // Function to check password strength
 function checkPasswordStrength(password) {
   const strengthIndicator = document.getElementById("password-strength");
@@ -7,10 +9,15 @@ function checkPasswordStrength(password) {
   let strength = "weak";
   let color = "red";
 
-  if (password.length >= 6 &&/[A-Z]/.test(password) &&/[0-9]/.test(password)) {
+  // Updated password strength logic to use `config.passwordMinLength`
+  if (
+    password.length >= config.passwordMinLength &&
+    /[A-Z]/.test(password) &&
+    /[0-9]/.test(password)
+  ) {
     strength = "strong";
     color = "green";
-  } else if (password.length >= 6) {
+  } else if (password.length >= config.passwordMinLength) {
     strength = "medium";
     color = "orange";
   }

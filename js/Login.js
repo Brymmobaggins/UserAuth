@@ -1,6 +1,7 @@
 /** @format */
 
 import { showMessage } from "./app.js";
+import rateLimit from "./RateLimit.js";
 
 const loginButton = document.getElementById("login-button");
 
@@ -12,15 +13,23 @@ export function login() {
   const checkbox = document.getElementById("remember-me");
 
   if (!username || !password) {
-    console.log("login failed");
     return showMessage("Please enter your username and password", "red");
+  }
+
+  // Check if the user is locked out
+  const lockoutStatus = rateLimit.isLockedOut(username);
+  if (lockoutStatus.locked) {
+    return showMessage(
+      `Too many failed attempts. Try again in ${lockoutStatus.remainingTime} seconds.`,
+      "red"
+    );
   }
 
   // Handle "Remember Me" functionality
   if (checkbox.checked) {
     localStorage.setItem("rememberUser", JSON.stringify(username));
   } else {
-    localStorage.removeItem("rememberUser"); // Fix typo here
+    localStorage.removeItem("rememberUser");
   }
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -29,19 +38,30 @@ export function login() {
   );
 
   if (user) {
+    // Reset failed attempts on successful login
+    rateLimit.resetAttempts(username);
+
     document.getElementById("login-form").style.display = "none";
     document.querySelector(".container").style.display = "none";
 
     // Redirect user to home page
     window.location.replace("/home/home.html");
     showMessage("Login successful", "green");
-    message.style.fontSize = "1.2rem";
-    message.style.fontWeight = "bold";
-
-    message.textContent = "Login successful, redirecting...";
   } else {
-    console.log("login failed");
-    showMessage("Wrong username or password", "red");
+    // Track failed login attempt
+    rateLimit.trackFailedAttempt(username);
+
+    const userAttempts = JSON.parse(localStorage.getItem("failedAttempts"))[
+      username
+    ];
+    if (userAttempts && userAttempts.count >= rateLimit.maxAttempts) {
+      return showMessage(
+        "Too many failed attempts. You are locked out for 5 minutes.",
+        "red"
+      );
+    } else {
+      return showMessage("Wrong username or password", "red");
+    }
   }
 
   document.getElementById("login-username").value = "";
