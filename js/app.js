@@ -71,14 +71,7 @@ function handleForgotPassword() {
     window.location.replace("/login/login.html");
   }, 2000);
 }
-function handleLogOut(){
-  // Clear the "Remember Me" data
-  localStorage.removeItem("rememberUser");
 
-  // Redirect to login page
-  window.location.replace("/login/login.html");
- 
-}
 
 // function to handle error messages
 export function showMessage(msg, color) {
