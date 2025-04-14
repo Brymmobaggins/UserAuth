@@ -3,6 +3,8 @@
 import { showMessage } from "./app.js";
 import rateLimit from "./RateLimit.js";
 
+const rateLimitInstance = new rateLimit();
+
 const loginButton = document.getElementById("login-button");
 
 loginButton.addEventListener("click", login);
@@ -17,7 +19,7 @@ export function login() {
   }
 
   // Check if the user is locked out
-  const lockoutStatus = rateLimit.isLockedOut(username);
+  const lockoutStatus = rateLimitInstance.isLockedOut(username);
   if (lockoutStatus.locked) {
     return showMessage(
       `Too many failed attempts. Try again in ${lockoutStatus.remainingTime} seconds.`,
@@ -39,7 +41,7 @@ export function login() {
 
   if (user) {
     // Reset failed attempts on successful login
-    rateLimit.resetAttempts(username);
+    rateLimitInstance.resetAttempts(username);
 
     document.getElementById("login-form").style.display = "none";
     document.querySelector(".container").style.display = "none";
@@ -49,12 +51,12 @@ export function login() {
     showMessage("Login successful", "green");
   } else {
     // Track failed login attempt
-    rateLimit.trackFailedAttempt(username);
+    rateLimitInstance.trackFailedAttempt(username);
 
     const userAttempts = JSON.parse(localStorage.getItem("failedAttempts"))[
       username
     ];
-    if (userAttempts && userAttempts.count >= rateLimit.maxAttempts) {
+    if (userAttempts && userAttempts.count >= rateLimitInstance.maxAttempts) {
       return showMessage(
         "Too many failed attempts. You are locked out for 5 minutes.",
         "red"
