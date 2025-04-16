@@ -1,19 +1,43 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+/** @format */
+
+:root {
+  --font-Comic: "Comic Neue", "cursive";
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+  font-family: var(--font-Comic);
+}
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
 }
 header {
   background: #020d19;
-  color: white;
+  color: #ffffff;
   padding: 1rem 2rem;
 }
-.login-header {
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 1.25rem;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+nav ul {
+  display: flex;
+  gap: 0.5rem;
+}
+nav ul li a {
+  color: #0e0b0b;
+  line-height: 1.5rem;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  background: #e8edf3;
+  cursor: pointer;
 }
 .container {
   border: 1px solid #b9b0b0;
@@ -34,9 +58,10 @@ label {
   display: block;
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
-  font-weight: 500;
+  font-weight: 600;
 }
-input, select {
+input,
+select {
   width: 100%;
   padding: 0.375rem;
   outline: none;
@@ -69,11 +94,12 @@ button {
   background: #008000;
   opacity: 1;
 }
-#password-strength{
-  font-size: 0.85rem; /* 14px */
+#password-strength,
+#message {
+  font-size: 0.875rem; /* 14px */
   display: block;
   font-weight: 450;
-  /* margin-top: 0.4rem;   */
+  line-height: 1.25rem;
 }
 button:hover {
   cursor: pointer;
@@ -81,26 +107,22 @@ button:hover {
 }
 .login-footer {
   text-align: center;
-  font-size: 0.875rem;
+}
+.login-footer {
+  font-size: 0.85rem;
   line-height: 1.25rem;
   font-weight: 500;
 }
 
 #successMessage {
-  /* font-size: medium; */
   padding-top: 15px;
   text-align: center;
-  /* font-size: 20px; */
-  /* width: 100%; */
-
 }
 #successMessage span {
   font-weight: 600;
-  /* color: green; */
 }
-#successMessage a{
+#successMessage a {
   color: #008000;
-  /* text-decoration: none; */
 }
 #welcome {
   background-color: yellow;

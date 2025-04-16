@@ -1,6 +1,7 @@
 /** @format */
 
-import { showMessage } from "./app.js";
+import { messages } from "./config.js";
+import { showMessage } from "./utils.js";
 
 const loginButton = document.getElementById("login-button");
 
@@ -12,8 +13,8 @@ export function login() {
   const checkbox = document.getElementById("remember-me");
 
   if (!username || !password) {
-    console.log("login failed");
-    return showMessage("Please enter your username and password", "red");
+    console.error();
+    return showMessage(messages.error.emptyFields.text)
   }
 
   // Handle "Remember Me" functionality
@@ -35,10 +36,10 @@ export function login() {
     // Redirect user to home page
     window.location.replace("/home/home.html");
     showMessage("Login successful", "green");
-    message.style.fontSize = "1.2rem";
-    message.style.fontWeight = "bold";
+    messages.style.fontSize = "1.2rem";
+    messages.style.fontWeight = "bold";
 
-    message.textContent = "Login successful, redirecting...";
+    messages.textContent = "Login successful, redirecting...";
   } else {
     console.log("login failed");
     showMessage("Wrong username or password", "red");

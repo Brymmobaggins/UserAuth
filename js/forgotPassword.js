@@ -1,4 +1,4 @@
-import { showMessage } from "./app.js";
+import { showMessage } from "./utils.js";
 
 const submitButton = document.getElementById('submit-button');
 

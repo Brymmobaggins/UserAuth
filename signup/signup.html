@@ -6,19 +6,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- bcrypt.js CDN -->
 
     <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="/styles/signup.css" />
     <script defer src="../js/passwordStrengthIndicator.js"></script>
     <!-- Link to the external JavaScript file -->
-    <script type="module" src="../js/app.js"></script>
+    <!-- <script type="module" src="../js/app.js"></script> -->
     <script type="module" src="../js/Signup.js"></script>
+    <script type="module" src="../js/utils.js"></script>
   </head>
   <body>
     <header>
-      <!-- Page header -->
-      Sign up, Login and log out with Web storage API (local Storage)
+      <nav>
+        <h1><a href="/index.html"> ieatPDF</a></h1>
+        <ul>
+          <li><a href="../login/login.html">Login</a></li>
+          <!-- <li><a href="../signup/signup.html">Sign up</a></li> -->
+        </ul>
+      </nav>
     </header>
     <div class="container" id="">
       <!-- Message container for displaying feedback -->
@@ -28,12 +42,12 @@
 
       <!-- Sign-up form -->
       <form id="signup-form">
-        <div class="login-header">Create account</div>
+        <h2 class="login-header">Create account</h2>
 
         <!-- Full Name input field -->
         <div>
           <label for="name">Full Name</label>
-          <input type="text" id="signup-name" placeholder="e.g John Doe" />
+          <input type="text" id="signup-name" pvlaceholder="e.g John Doe" />
         </div>
 
         <!-- Email input field -->
@@ -41,14 +55,13 @@
           <label for="name">Email</label>
           <input type="email" id="signup-email" />
         </div>
- 
+
         <!-- Password input field -->
         <div>
           <label for="password">Password</label>
           <input type="password" id="signup-password" />
           <small id="password-strength"> </small>
         </div>
-      
 
         <!-- Security question dropdown -->
         <div>
@@ -82,7 +95,7 @@
         </div>
 
         <!-- Sign-up button -->
-        <div class="form-control">
+        <div>
           <button type="button" id="signup-button">Sign Up</button>
         </div>
 
@@ -91,7 +104,6 @@
           <p>Have an account? <a href="/login/login.html"> Login</a></p>
         </div>
       </form>
-     
     </div>
   </body>
 </html>

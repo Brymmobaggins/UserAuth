@@ -1,0 +1,116 @@
+/** @format */
+
+:root {
+  --font-Comic: "Comic Neue", "cursive";
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-Comic);
+}
+
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background: #020d19;
+  color: #ffffff;
+  padding: 1rem 2rem;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid #ff0000; */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+nav ul {
+  display: flex;
+  gap: 0.5rem;
+}
+nav ul li a {
+  color: #0e0b0b;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  /* transition: all 0.3s ease-in-out; */
+  background: #e8edf3;
+  /* border: 1px solid #020d19; */
+  cursor: pointer;
+  /* border: 1px solid #020d19; */
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+main {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 800px;
+  /* border: 1px solid #020d19; */
+}
+.hero-text h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+.hero-text h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.hero-text p {
+    line-height: 1.5rem;
+    margin-top: 2rem;
+    /* font-weight: 600; */
+}
+.hero-text ~ *{
+    margin-top: 2rem;
+}
+section {
+  /* display: flex;
+  padding: 1.25rem;
+  margin-top: 2.5rem;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 85%; */
+}
+#features {
+  display: flex;
+  margin-top: 2.5rem;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  /* border: 1px solid red; */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+#features > div {
+  border: 0.2px solid #020d19;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* gap: 1.5rem; */
+
+}
+.card-info {
+  margin-top: 0.5rem;
+}

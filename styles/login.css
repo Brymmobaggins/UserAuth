@@ -1,33 +1,57 @@
 /** @format */
-
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
-
-header {
-  background: #020d19;
-  color: white;
-  padding: 1rem 2rem;
+:root {
+  --font-Comic: "Comic Neue", "cursive";
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+  font-family: var(--font-Comic);
 }
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+nav ul {
+  display: flex;
+  gap: 0.5rem;
+}
+nav ul li a {
+  color: #0e0b0b;
+  line-height: 1.5rem;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  background: #e8edf3;
+  cursor: pointer;
+}
+header {
+  background: #020d19;
+  color: white;
+  padding: 1rem 2rem;
+}
+
 .login-header {
   font-weight: 800;
 
   line-height: 1.25rem;
   margin-top: 0.5rem;
 }
-#message{
+#message {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   position: absolute;
   top: 2%;
- 
-
 }
 .container {
   border: 1px solid #b9b0b0;
@@ -92,7 +116,6 @@ button:hover {
 p {
   font-size: 0.875rem;
   font-weight: 500;
-  
 }
 .rememberme-forget-container {
   display: flex;
@@ -105,4 +128,3 @@ p {
   line-height: 1.25rem;
   font-weight: 500;
 }
-

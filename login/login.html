@@ -6,6 +6,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="/styles/login.css" />
     <!-- Link to external JavaScript file -->
@@ -14,8 +21,13 @@
   </head>
   <body>
     <header>
-      <!-- Header text -->
-      Sign up, Login and log out with Web storage API (local Storage)
+      <nav>
+        <h1><a href="/index.html">ieatPDF</a></h1>
+        <ul>
+          <!-- <li><a href="./login/login.html">Login</a></li> -->
+          <li><a href="/signup/signup.html">Sign up</a></li>
+        </ul>
+      </nav>
     </header>
 
     <div class="container">
@@ -61,8 +73,6 @@
           <!-- Sign-up link -->
           <p>Dont have an account?<a href="/signup/signup.html"> Sign Up</a></p>
         </div>
-      
-
       </form>
     </div>
     <script type="module" src="../js/Login.js"></script>

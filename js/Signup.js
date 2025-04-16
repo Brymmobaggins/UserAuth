@@ -1,12 +1,19 @@
 /** @format */
 
-import { showMessage } from "./app.js";
+import { messages } from "./config.js";
+import { showMessage } from "./utils.js";
+// import { messages } from "./config.js";
+
+const signForm = document.getElementById("signup-form");
+
+signForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+});
 
 const signUpButton = document.getElementById("signup-button");
-
 signUpButton.addEventListener("click", handleSignUp);
 
-export function handleSignUp() {
+function handleSignUp() {
   const username = document.getElementById("signup-name").value.trim();
   const email = document.getElementById("signup-email").value.trim();
   const password = document.getElementById("signup-password").value.trim();
@@ -24,52 +31,73 @@ export function handleSignUp() {
     !securityQuestion ||
     !securityAnswer
   ) {
-    return showMessage("Please fill in all fields", "red");
+    return showMessage(messages.error.emptyFields, "red");
   }
 
-  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
-    return showMessage("Please enter a valid email address", "red");
-  }
-
-  if (!/^[a-zA-Z0-9._%+-]+$/.test(username)) {
+  if (!messages.validation.emailRegex.test(email)) {
     return showMessage(
-      "Username can only contain letters, numbers, and underscores",
-      "red"
+      messages.error.invalidEmail.text,
+      messages.error.invalidEmail.color
     );
   }
 
-  if (password.length < 6) {
-    return showMessage("Password must be at least 6 characters long", "red");
+  if (!messages.validation.usernameRegex.test(username)) {
+    return showMessage(
+      messages.error.invalidUsername.text,
+      messages.error.invalidUsername.color
+    );
+  }
+
+  if (password.length < messages.validation.passwordMinLength) {
+    return showMessage(
+      messages.error.shortPassword.text,
+      messages.error.shortPassword.color
+    );
   }
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
-  const userExists = users.find((user) => user.username === username);
+  const userExists = users.find(
+    (user) => user.username === username || user.email === email
+  );
 
   if (userExists) {
-    return showMessage("Username already exists", "red");
+    const message =
+      userExists.username === username
+        ? messages.signup.usernameExists
+        : messages.signup.emailExists;
+    return showMessage(message.text, message.color);
   }
 
   const newUser = {
-    username: username + Math.floor(Math.random() * 100),
-    password,
+    username,
     email,
+    password,
     securityQuestion,
     securityAnswer,
   };
-
   users.push(newUser);
   localStorage.setItem("users", JSON.stringify(users));
-  showMessage("Sign up successful", "green");
+  showMessage(messages.signup.success.text, messages.signup.success.color);
 
-  // clear the form fields
-  username.value = "";
-  password.value = "";
+  // Clear the form fields
+  document.getElementById("signup-name").value = "";
+  document.getElementById("signup-password").value = "";
+  document.getElementById("signup-email").value = "";
+  document.getElementById("security-question").value = "";
+  document.getElementById("security-answer").value = "";
 
-  document.getElementById("signup-form").style.display = "none";
-  document.getElementById("successMessage").style.display = "block";
-  document.getElementById("successMessage").innerHTML = `
-          <p>
-              Hello ${newUser.username}, your username is <span>${newUser.username}</span>.
-              Kindly <a href="/login/login.html">log in</a>.
-          </p>`;
+  // Display success message
+  const signupForm = document.getElementById("signup-form");
+
+  if (signupForm) signupForm.style.display = "none";
+  if (successMessage) {
+    successMessage.style.display = "block";
+    successMessage.innerHTML = `
+      <p>
+        Hello ${newUser.username}, your username is <span>${newUser.username}</span>.
+        Kindly <a href="/login/login.html">log in</a>.
+      </p>`;
+  } else {
+    console.error("Success message container not found!");
+  }
 }
