@@ -2,7 +2,13 @@
 
 :root {
   --font-Comic: "Comic Neue", "cursive";
+  --primary-color: #dfdf04;
+  /* white, black, and gray are the colors of the text and background. */
+  --bg-color: whitesmoke;
+  --text-color: #101820;
+  --secondary-color: gray;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -15,10 +21,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 header {
-  background: #020d19;
+  background: var(--text-color);
   color: #ffffff;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
 }
 nav {
   display: flex;
@@ -27,17 +34,26 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
 }
+nav h1 a {
+  color: #ffffff;
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-decoration: none;
+}
 nav ul {
   display: flex;
   gap: 0.5rem;
 }
 nav ul li a {
-  color: #0e0b0b;
+  font-weight: 600;
+  font-size: 1rem;
   line-height: 1.5rem;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
-  background: #e8edf3;
+  padding: 0.75rem;
+  background: #ffff00;
   cursor: pointer;
+  opacity: 1;
+  color: #0a0101;
 }
 .container {
   border: 1px solid #b9b0b0;
@@ -67,32 +83,31 @@ select {
   outline: none;
   font-size: 1rem; /* 16px */
   line-height: 1.5rem; /* 24px */
-  border-width: 0;
-  border: 0.2px solid gray;
-  border-radius: 3px;
-  box-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width))
-    var(--tw-ring-color);
-  --tw-ring-inset: inset;
-  --ring-color: #d1d5db;
+  border: 0.05px solid var(--secondary-color);
+  border-radius: 4px;
 }
 input:focus {
-  outline: 0.1px solid #008000;
+  /* outline: 0.1px solid  var(--primary-color); */
+  outline: 0.3px solid var(--secondary-color);
+  
 }
 ::placeholder {
   font-size: 14px;
 }
 
 button {
-  width: 50%;
+  width: 100%;
+  padding: 0.5rem;
   text-align: center;
-  margin: 0 auto;
-  display: block;
-  font-weight: 600;
+
   border: none;
-  height: 25px;
-  color: #ffffff;
-  background: #008000;
+  height: 35px;
+  color: var(--text-color);
+  background: var(--primary-color);
   opacity: 1;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.5rem;
 }
 #password-strength,
 #message {

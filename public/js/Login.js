@@ -14,7 +14,7 @@ export function login() {
 
   if (!username || !password) {
     console.error();
-    return showMessage(messages.error.emptyFields.text)
+    return showMessage(messages.error.emptyUsername, "red");
   }
 
   // Handle "Remember Me" functionality

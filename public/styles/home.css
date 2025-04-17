@@ -2,12 +2,20 @@
 
 :root {
   --font-Comic: "Comic Neue", "cursive";
+  --primary-color: #dfdf04;
+  /* white, black, and gray are the colors of the text and background. */
+  --bg-color: whitesmoke;
+  --text-color: #101820;
+  --secondary-color: gray;
+  --link-color: #0b0bd3
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-Comic);
+  /* background-color: var(--bg-color); */
 }
 
 li,
@@ -16,13 +24,17 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
+a{
+  /* color: var(--link-color); */
+}
 header {
-  background: #020d19;
+  background: var(--text-color);
   color: #ffffff;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
+  /* padding: 0.75rem 2rem; */
 }
 nav {
+  background-color:inherit;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,22 +42,30 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
 }
+nav h1 a{
+  color: #ffffff;
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-decoration: none;
+}
 nav ul {
   display: flex;
   gap: 0.5rem;
 }
 nav ul li a {
-  color: #0e0b0b;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.5rem;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
-  /* transition: all 0.3s ease-in-out; */
-  background: #e8edf3;
-  /* border: 1px solid #020d19; */
+  padding: 0.75rem;
+  background: #FFFF00;
   cursor: pointer;
-  /* border: 1px solid #020d19; */
+  opacity: 1;
+  color: #0a0101
+}
+nav ul li a:hover {
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
 }
 .container {
   max-width: 1200px;
@@ -72,7 +92,8 @@ main {
 .hero-text p {
     line-height: 1.5rem;
     margin-top: 2rem;
-    /* font-weight: 600; */
+    font-size: 1.2rem;
+    
 }
 .hero-text ~ *{
     margin-top: 2rem;
@@ -101,16 +122,23 @@ section {
   /* border: 1px solid red; */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  width: 100%;
+  /* width: 100%; */
 }
 #features > div {
-  border: 0.2px solid #020d19;
+  /* border: 0.2px solid #020d19; */
   padding: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
   0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  /* gap: 1.5rem; */
+  column-gap: 2rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
 
 }
 .card-info {
   margin-top: 0.5rem;
+}
+#features div:hover{
+  background: #e8edf3;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }

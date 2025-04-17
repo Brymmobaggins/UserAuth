@@ -1,8 +1,13 @@
 /** @format */
 :root {
   --font-Comic: "Comic Neue", "cursive";
+  --primary-color: #dfdf04;
+  /* white, black, and gray are the colors of the text and background. */
+  --bg-color: whitesmoke;
+  --text-color: #101820;
+  --secondary-color: gray;
+  --link-color: #0b0bd3;
 }
-
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +18,15 @@ li,
 a {
   list-style: none;
   text-decoration: none;
-  color: inherit;
+}
+a {
+  /* color: var(--link-color); */
+}
+header {
+  background: #040607;
+  color: #ffffff;
+  padding: 1rem 0;
+  /* padding: 0.75rem 2rem; */
 }
 nav {
   display: flex;
@@ -22,36 +35,45 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
 }
+nav h1 a {
+  color: #ffffff;
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-decoration: none;
+}
 nav ul {
   display: flex;
   gap: 0.5rem;
 }
 nav ul li a {
-  color: #0e0b0b;
+  font-weight: 600;
+  font-size: 1rem;
   line-height: 1.5rem;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
-  background: #e8edf3;
+  padding: 0.75rem;
+  background: var(--primary-color);
   cursor: pointer;
+  opacity: 1;
+  color: var(--text-color);
 }
-header {
-  background: #020d19;
-  color: white;
-  padding: 1rem 2rem;
+nav ul li a:hover {
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
 }
 
 .login-header {
   font-weight: 800;
-
   line-height: 1.25rem;
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  /* border: 1px solid #df6d6d; */
 }
 #message {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
   position: absolute;
-  top: 2%;
+  top: 0%;
+  font-size: 0.875rem; /* 14px */
+  display: block;
+  font-weight: 450;
+  line-height: 1.25rem;
 }
 .container {
   border: 1px solid #b9b0b0;
@@ -75,7 +97,7 @@ label[for="username"],
 label[for="password"] {
   font-size: 0.875rem; /*14px */
   line-height: 1.25rem; /* 20px */
-  font-weight: 500;
+  font-weight: 600;
 }
 
 input:focus {
@@ -98,16 +120,17 @@ input[type="text"] {
 }
 
 button {
-  width: 50%;
+  width: 100%;
+  padding: 0.5rem;
   text-align: center;
-  margin: 0 auto;
-  display: block;
   font-weight: 600;
   border: none;
-  height: 25px;
-  color: #ffffff;
-  background: #008000;
+  height: 35px;
+  color: var(--text-color);
+  background: var(--primary-color);
   opacity: 1;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 }
 button:hover {
   cursor: pointer;

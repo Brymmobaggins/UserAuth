@@ -9,6 +9,7 @@ export const messages = {
   },
   error: {
     emptyFields: "Please fill all fields",
+    emptyUsername: "Please enter a username and Password",
     invalidEmail: "Please enter a valid email address",
     shortPassword: "Password must be at least 6 characters long",
     invalidUsername:
